@@ -1,5 +1,6 @@
 package com.tadinhos.fitclass.domain.address;
 
+import com.tadinhos.fitclass.domain.gym.Gym;
 import com.tadinhos.fitclass.domain.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -26,4 +27,7 @@ public class Address {
 
     @OneToMany(mappedBy = "address", fetch = FetchType.LAZY)
     private List<User> users;
+
+    @OneToMany(mappedBy = "address", fetch = FetchType.LAZY)
+    private List<Gym> gyms;
 }
