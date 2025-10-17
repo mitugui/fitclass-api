@@ -1,6 +1,7 @@
 package com.tadinhos.fitclass.domain.gym;
 
 import com.tadinhos.fitclass.domain.address.Address;
+import com.tadinhos.fitclass.domain.gymclass.GymClass;
 import com.tadinhos.fitclass.domain.gymowner.GymOwner;
 import com.tadinhos.fitclass.domain.personal.Personal;
 import jakarta.persistence.*;
@@ -32,4 +33,7 @@ public class Gym {
 
     @ManyToMany(mappedBy = "gyms")
     private List<Personal> personals;
+
+    @OneToMany(mappedBy = "gym", cascade = CascadeType.ALL)
+    private List<GymClass> gymClasses;
 }

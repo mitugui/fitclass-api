@@ -2,6 +2,7 @@ package com.tadinhos.fitclass.domain.personal;
 
 import com.tadinhos.fitclass.domain.category.Category;
 import com.tadinhos.fitclass.domain.gym.Gym;
+import com.tadinhos.fitclass.domain.gymclass.GymClass;
 import com.tadinhos.fitclass.domain.user.User;
 import jakarta.persistence.*;
 
@@ -25,4 +26,7 @@ public class Personal extends User {
             inverseJoinColumns = @JoinColumn(name = "gym_id")
     )
     private List<Gym> gyms;
+
+    @OneToMany(mappedBy = "personal", cascade = CascadeType.ALL)
+    private List<GymClass> gymClasses;
 }

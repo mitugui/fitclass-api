@@ -1,5 +1,6 @@
 package com.tadinhos.fitclass.domain.category;
 
+import com.tadinhos.fitclass.domain.gymclass.GymClass;
 import com.tadinhos.fitclass.domain.personal.Personal;
 import jakarta.persistence.*;
 import lombok.*;
@@ -22,5 +23,8 @@ public class Category {
     private String name;
 
     @ManyToMany(mappedBy = "categories")
-    List<Personal> personals;
+    private List<Personal> personals;
+
+    @OneToMany(mappedBy = "category")
+    private List<GymClass> gymClasses;
 }
