@@ -1,6 +1,7 @@
 package com.tadinhos.fitclass.domain.personal;
 
 import com.tadinhos.fitclass.domain.category.Category;
+import com.tadinhos.fitclass.domain.gym.Gym;
 import com.tadinhos.fitclass.domain.user.User;
 import jakarta.persistence.*;
 
@@ -16,4 +17,12 @@ public class Personal extends User {
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
     private List<Category> categories;
+
+    @ManyToMany
+    @JoinTable(
+            name = "gyms_personals",
+            joinColumns = @JoinColumn(name = "personal_id"),
+            inverseJoinColumns = @JoinColumn(name = "gym_id")
+    )
+    private List<Gym> gyms;
 }
