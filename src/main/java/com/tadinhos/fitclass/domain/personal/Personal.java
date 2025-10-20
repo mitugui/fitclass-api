@@ -21,7 +21,7 @@ public class Personal extends User {
 
     @ManyToMany
     @JoinTable(
-            name = "gyms_personals",
+            name = "personal_gyms",
             joinColumns = @JoinColumn(name = "personal_id"),
             inverseJoinColumns = @JoinColumn(name = "gym_id")
     )
