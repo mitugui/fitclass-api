@@ -21,9 +21,12 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String address;
+    private String street;
     private String cep;
     private String number;
+    private String neighborhood;
+    private String town;
+    private String province;
 
     @OneToMany(mappedBy = "address", fetch = FetchType.LAZY)
     private List<User> users;
