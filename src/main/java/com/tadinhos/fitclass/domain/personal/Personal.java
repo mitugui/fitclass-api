@@ -5,11 +5,17 @@ import com.tadinhos.fitclass.domain.gym.Gym;
 import com.tadinhos.fitclass.domain.gymclass.GymClass;
 import com.tadinhos.fitclass.domain.user.User;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 
 @Entity(name = "Personal")
 @Table(name = "personals")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(callSuper = true)
 public class Personal extends User {
     @ManyToMany
     @JoinTable(
