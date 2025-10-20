@@ -3,11 +3,17 @@ package com.tadinhos.fitclass.domain.gymrat;
 import com.tadinhos.fitclass.domain.gymclass.GymClass;
 import com.tadinhos.fitclass.domain.user.User;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 
 @Entity(name = "GymRat")
 @Table(name = "gym_rats")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(callSuper = true)
 public class GymRat extends User {
     @ManyToMany
     @JoinTable(
