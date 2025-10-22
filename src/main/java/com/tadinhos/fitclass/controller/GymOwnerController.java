@@ -17,9 +17,9 @@ public class GymOwnerController {
     private GymOwnerService gymOwnerService;
 
     @PostMapping
-    public ResponseEntity<?> save (@RequestBody DataGymOwnerCreateRequest dataGymOwnerCreateRequest) {
-        var gymOwner = gymOwnerService.create(dataGymOwnerCreateRequest);
+    public ResponseEntity<DataGymOwnerCreated> save (@RequestBody DataGymOwnerCreateRequest dataGymOwnerCreateRequest) {
+        var gymOwnerCreated = gymOwnerService.create(dataGymOwnerCreateRequest);
 
-        return ResponseEntity.ok().body(new DataGymOwnerCreated(gymOwner));
+        return ResponseEntity.ok().body(gymOwnerCreated);
     }
 }
