@@ -6,6 +6,7 @@ import com.tadinhos.fitclass.domain.gymowner.GymOwner;
 import java.time.LocalDate;
 
 public record DataGymOwnerCreated(
+        Long id,
         String name,
         String email,
         String phoneNumber,
@@ -15,6 +16,7 @@ public record DataGymOwnerCreated(
         DataAddressResponse address) {
     public DataGymOwnerCreated(GymOwner gymOwner) {
         this(
+                gymOwner.getId(),
                 gymOwner.getName(),
                 gymOwner.getEmail(),
                 gymOwner.getPhoneNumber(),
