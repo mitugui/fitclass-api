@@ -1,6 +1,7 @@
 package com.tadinhos.fitclass.domain.gym;
 
 import com.tadinhos.fitclass.domain.address.Address;
+import com.tadinhos.fitclass.domain.gym.dto.DataGymCreate;
 import com.tadinhos.fitclass.domain.gymclass.GymClass;
 import com.tadinhos.fitclass.domain.gymowner.GymOwner;
 import com.tadinhos.fitclass.domain.personal.Personal;
@@ -25,7 +26,7 @@ public class Gym {
     private String cnpj;
     private String phoneNumber;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private Address address;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -36,4 +37,12 @@ public class Gym {
 
     @OneToMany(mappedBy = "gym", cascade = CascadeType.ALL)
     private List<GymClass> gymClasses;
+
+    public Gym (DataGymCreate data) {
+        this.name = data.name();
+        this.cnpj = data.cnpj();
+        this.phoneNumber = data.phoneNumber();
+        this.address = data.address();
+        this.gymOwner = data.gymOwner();
+    }
 }
