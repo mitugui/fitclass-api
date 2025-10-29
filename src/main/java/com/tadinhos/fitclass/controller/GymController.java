@@ -3,6 +3,9 @@ package com.tadinhos.fitclass.controller;
 import com.tadinhos.fitclass.domain.gym.GymService;
 import com.tadinhos.fitclass.domain.gym.dto.DataGymCreateRequest;
 import com.tadinhos.fitclass.domain.gym.dto.DataGymCreated;
+
+import jakarta.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +20,7 @@ public class GymController {
     private GymService gymService;
 
     @PostMapping
+    @Transactional
     public ResponseEntity<DataGymCreated> save(@RequestBody DataGymCreateRequest dataGymCreateRequest) {
         var gymCreated = gymService.create(dataGymCreateRequest);
 
