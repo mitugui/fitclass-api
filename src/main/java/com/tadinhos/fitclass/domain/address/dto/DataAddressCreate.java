@@ -1,5 +1,6 @@
 package com.tadinhos.fitclass.domain.address.dto;
 
+import com.tadinhos.fitclass.domain.gym.dto.DataGymCreateRequest;
 import com.tadinhos.fitclass.domain.gymowner.dto.DataGymOwnerCreateRequest;
 
 public record DataAddressCreate(
@@ -17,6 +18,17 @@ public record DataAddressCreate(
             gymOwnerCreateData.neighborhood(),
             gymOwnerCreateData.town(),
             gymOwnerCreateData.province()
+        );
+    }
+
+    public DataAddressCreate(DataGymCreateRequest gymCreateData) {
+        this(
+            gymCreateData.street(),
+            gymCreateData.cep(),
+            gymCreateData.number(),
+            gymCreateData.neighborhood(),
+            gymCreateData.town(),
+            gymCreateData.province()
         );
     }
 }
