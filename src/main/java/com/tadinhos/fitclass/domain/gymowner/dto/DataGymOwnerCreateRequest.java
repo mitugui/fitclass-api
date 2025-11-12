@@ -1,5 +1,7 @@
 package com.tadinhos.fitclass.domain.gymowner.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 
 public record DataGymOwnerCreateRequest(
@@ -9,6 +11,8 @@ public record DataGymOwnerCreateRequest(
         String phoneNumber,
         String cpf,
         String gender,
+
+        @JsonFormat(pattern = "dd/MM/yyyy")
         LocalDate birthDate,
 
         String street,

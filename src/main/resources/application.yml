@@ -8,3 +8,10 @@ spring:
     url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_DATABASE}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET}
+cors:
+  allowed:
+    origin: ${CORS_ALLOWED_ORIGIN}
